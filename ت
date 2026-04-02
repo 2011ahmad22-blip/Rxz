@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rxz Script</title>
+    <style>
+        /* إعدادات الخلفية السوداء والخطوط */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* تأثير النجوم المتحركة */
+        #stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: move linear infinite;
+        }
+
+        @keyframes move {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100vh); }
+        }
+
+        /* الهيدر والعنوان الأساسي */
+        header {
+            padding: 100px 20px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin: 20px 0 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* تصميم كروت السكربتات */
+        .scripts-section {
+            padding: 50px 20px;
+        }
+
+        .script-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .script-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .script-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .script-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .lua-box {
+            background: #000;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #d1d1d1;
+            text-align: left;
+            direction: ltr;
+            overflow-x: auto;
+            border: 1px solid #222;
+            margin-bottom: 15px;
+        }
+
+        .copy-btn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: auto;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* قسم الديسكورد */
+        .discord-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            max-width: 700px;
+            margin: 100px auto 50px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .discord-btn {
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        footer {
+            padding: 40px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div id="stars-container"></div>
+
+<header>
+    <span class="badge">● النسخة الأحدث متاحة الآن</span>
+    <h1>Rxz</h1>
+    <div class="subtitle">Script</div>
+    <p class="description">سكربتات احترافية بأداء عالي وجودة استثنائية. انسخ السكربت وابدأ تجربتك الأسطورية.</p>
+</header>
+
+<div class="scripts-section">
+    <div class="script-card">
+        <div class="script-header">
+            <span class="script-name">Alone Script</span>
+        </div>
+        <div class="lua-box" id="s1">loadstring(game:HttpGet("https://raw.githubusercontent.com/salihmahdu11-oss/SA-ALONE/refs/heads/main/SA%20%7C%20PVP"))()</div>
+        <button class="copy-btn" onclick="copyText('s1')">نسخ السكربت 📋</button>
+    </div>
+
+    <div class="script-card">
+        <div class="script-header">
+            <span class="script-name">z3 Script</span>
+        </div>
+        <div class="lua-box" id="s2">loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/89e7717db605d4502c0b92a1a77e49f8.lua"))()</div>
+        <button class="copy-btn" onclick="copyText('s2')">نسخ السكربت 📋</button>
+    </div>
+
+    <div class="script-card">
+        <div class="script-header">
+            <span class="script-name">ors Script</span>
+        </div>
+        <div class="lua-box" id="s3">script_key = "trial"
+loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/add6893208404c35a6e6680340ee4839b79d9afa18767a43145450597d1b16a4.lua"))()</div>
+        <button class="copy-btn" onclick="copyText('s3')">نسخ السكربت 📋</button>
+    </div>
+
+    <div class="script-card">
+        <div class="script-header">
+            <span class="script-name">zh Script</span>
+        </div>
+        <div class="lua-box" id="s4">loadstring(game:HttpGet("https://msuelcjkfclhrnwuywte.supabase.co/functions/v1/get-paste?id=f8cdb979-7580-41b2-8069-04b5ca11d404"))()</div>
+        <button class="copy-btn" onclick="copyText('s4')">نسخ السكربت 📋</button>
+    </div>
+
+    <div class="script-card">
+        <div class="script-header">
+            <span class="script-name">Vel Script</span>
+        </div>
+        <div class="lua-box" id="s5">loadstring(game:HttpGet("https://pastefy.app/OXgDc3mO/raw"))()</div>
+        <button class="copy-btn" onclick="copyText('s5')">نسخ السكربت 📋</button>
+    </div>
+</div>
+
+<div class="discord-section">
+    <h3>انضم لسيرفر Rxz</h3>
+    <p>انضم لمجتمعنا الأسطوري على ديسكورد! سكربتات حصرية، فعاليات مستمرة، ودعم فني مباشر 🚀</p>
+    <a href="https://discord.gg/rxz" class="discord-btn">انضم الآن 💬</a>
+</div>
+
+<footer>
+    © Rxz Script 2026 — جميع الحقوق محفوظة
+</footer>
+
+<script>
+    // إنشاء النجوم برمجياً
+    const container = document.getElementById('stars-container');
+    for (let i = 0; i < 150; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 3 + 'px';
+        star.style.width = size;
+        star.style.height = size;
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.animationDuration = Math.random() * 3 + 2 + 's';
+        star.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(star);
+    }
+
+    // وظيفة النسخ
+    function copyText(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert('تم نسخ السكربت بنجاح!');
+        });
+    }
+</script>
+
+</body>
+</html>
