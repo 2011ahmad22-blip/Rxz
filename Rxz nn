@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rxz Script | Premium Hub</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --accent-color: #3a86ff;
+            --bg-dark: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--primary-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        #canvas-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        header {
+            padding: 100px 20px 40px;
+            text-align: center;
+        }
+
+        .badge {
+            background: rgba(58, 134, 255, 0.1);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            background: linear-gradient(to bottom, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .script-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .script-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .lua-box {
+            background: #000;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #9cdcfe;
+            direction: ltr;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #222;
+        }
+
+        .copy-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: 0.2s;
+        }
+
+        .discord-card {
+            background: #5865F2;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .discord-btn {
+            background: white;
+            color: #5865F2;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas-stars"></canvas>
+
+<header>
+    <div class="badge">V2.0 — نظام الحماية مفعل</div>
+    <h1>Rxz</h1>
+    <div class="subtitle">PREMIUM SCRIPTS</div>
+</header>
+
+<div class="container">
+    <div class="script-card">
+        <h3>Alone Hub</h3>
+        <div class="lua-box" id="s1">loadstring(game:HttpGet("https://raw.githubusercontent.com/salihmahdu11-oss/SA-ALONE/refs/heads/main/SA%20%7C%20PVP"))()</div>
+        <button class="copy-btn" onclick="copyText('s1')">نسخ الكود 📋</button>
+    </div>
+
+    <div class="discord-card">
+        <h2>انضم لمجتمعنا</h2>
+        <p>سكربتات حصرية ودعم فني مباشر</p>
+        <a href="https://discord.gg/rxz" class="discord-btn">دخول السيرفر</a>
+    </div>
+</div>
+
+<footer>
+    © 2026 Rxz Script Hub
+</footer>
+
+<script>
+    function copyText(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert('تم النسخ بنجاح!');
+        });
+    }
+
+    const canvas = document.getElementById('canvas-stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    for(let i = 0; i < 150; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 1.5,
+            speed: Math.random() * 0.5 + 0.1
+        });
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#fff';
+        stars.forEach(star => {
+            star.y -= star.speed;
+            if(star.y < 0) star.y = canvas.height;
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
+</script>
+
+</body>
+</html>
